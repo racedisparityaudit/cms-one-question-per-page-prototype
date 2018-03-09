@@ -37,7 +37,7 @@
               </div>
 
               <div class="multiple-choice">
-                <input class="country" id="northern-ireland" name="area-covered" type="checkbox" value="Northern Ireland"{{ 'checked' if data['area-covered'].includes('Northern Ireland') }}>
+                <input class="country" id="northern-ireland" name="area-covered" type="checkbox" value="Northern Ireland"{{ 'checked' if data['area-covered'] and data['area-covered'].includes('Northern Ireland') }}>
                 <label for="northern-ireland">Northern Ireland</label>
               </div>
 
