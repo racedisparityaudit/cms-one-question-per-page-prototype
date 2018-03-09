@@ -59,7 +59,7 @@
             Area covered
           </dt>
           <dd class="cya-answer">
-            {{ data['area-covered'].join(', ') }}
+            {{ data['area-covered'].join(', ') if data['area-covered'] }}
           </dd>
           <dd class="cya-change">
             <a href="/area-covered">
