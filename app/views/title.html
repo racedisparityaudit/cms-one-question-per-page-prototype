@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/time-period" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="title">
+            <h1 class="heading-large">Title</h1>
+            <span class="form-hint">
+              A plain English version of what the data measures. Use terms people are likely to search for, and front-load the most important content.
+            </span>
+          </label>
+          <input class="form-control" id="title" type="text" name="title" style="width: 100%;" value="{{ data['title'] }}">
+
+          <details style="margin-top: 20px;">
+            <summary>Examples</summary>
+
+            <h2 class="heading-small">Bad example:</h2>
+
+            <div class="panel">Households by ethnic group of head and total weekly household income, three-year averages, United Kingdom</div>
+
+            <h2 class="heading-small">Good example:</h2>
+
+            <div class="panel">Household income
+          </details>
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

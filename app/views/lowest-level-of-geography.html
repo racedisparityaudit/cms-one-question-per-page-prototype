@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-full">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/summary" method="post">
+
+          <fieldset style="margin-bottom: 20px;">
+            <legend>
+              <h1 class="heading-large">Lowest level of geography</h3>
+            </span>
+
+            </legend>
+
+            <div class="multiple-choice">
+              <input id="united-kingdom" name="lowest-level-of-geography" type="radio" value="United Kingdom">
+              <label for="united-kingdom">United Kingdom</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="national" name="lowest-level-of-geography" type="radio" value="Country">
+              <label for="national">Country (for example, England, Wales, England and Wales, Scotland)</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="regions" name="lowest-level-of-geography" type="radio" value="Region">
+              <label for="regions">Region (for example, South West, London, North West, Wales)</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="local-authority-upper" name="lowest-level-of-geography" type="radio" value="Local authority upper tier">
+              <label for="local-authority-upper">Local authority upper tier (for example, county council, unitary authority, Greater London Authority) – applies to England only</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="local-authority-lower" name="lowest-level-of-geography" type="radio" value="Local authority lower tier">
+              <label for="local-authority-lower">Local authority lower tier (for example, district council, unitary authority, London borough) – applies to England, Scotland, Wales and Northern Ireland</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="police-force-area" name="lowest-level-of-geography" type="radio" value="Police force area">
+              <label for="police-force-area">Police force area</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input id="ccg" name="lowest-level-of-geography" type="radio" value="Clinical commissioning group">
+              <label for="ccg">Clinical commissioning group</label>
+            </div>
+
+          </fieldset>
+
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

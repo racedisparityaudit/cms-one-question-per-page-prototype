@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-full">
+      <a href="/" class="link-back">Back</a>
+
+      <h1 class="heading-large">
+        Create a measure
+      </h1>
+
+
+      <!-- only add a heading for a list if there is more than one list -->
+      <h2 class="heading-medium">
+        Basic metadata
+      </h2>
+
+      <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+      <!--   * `cya-questions-short` for short questions -->
+      <!--   * `cya-questions-long` for long questions -->
+      <!--   * none for single group of q&a -->
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Title
+          </dt>
+          <dd class="cya-answer">
+            {{ data['title'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/title">
+              Change<span class="visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Time period
+          </dt>
+          <dd class="cya-answer">
+            {{ data['time-period'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/time-period">
+              Change<span class="visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Area covered
+          </dt>
+          <dd class="cya-answer">
+            {{ data['area-covered'].join(', ') }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/area-covered">
+              Change<span class="visually-hidden"> home address</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Lowest level of geography
+          </dt>
+          <dd class="cya-answer">
+            {{ data['lowest-level-of-geography'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/lowest-level-of-geography">
+              Change<span class="visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+      <h2 class="heading-medium">
+        Commentary
+      </h2>
+
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Main points
+          </dt>
+          <dd class="cya-answer">
+            {{ data['main-points'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/main-points">
+              Change<span class="visually-hidden"> main points</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Things you need to know
+          </dt>
+          <dd class="cya-answer">
+            {{ data['things-you-need-to-know'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/things-you-need-to-know">
+              Change<span class="visually-hidden"> things you need to know</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            What the data measures
+          </dt>
+          <dd class="cya-answer">
+            {{ data['what-the-data-measures'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/what-the-data-measures">
+              Change<span class="visually-hidden"> home address</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            The ethnic categories used in this data
+          </dt>
+          <dd class="cya-answer">
+            {{ data['ethnic-categories'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/ethnic-categories">
+              Change<span class="visually-hidden"> licence period</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="heading-medium">
+        Methodology and type of data
+      </h2>
+
+      <dl class="govuk-check-your-answers cya-questions-short">
+        <div>
+          <dt class="cya-question">
+            Type of data
+          </dt>
+          <dd class="cya-answer">
+            {{ data['type-of-data'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/type-of-data">
+              Change<span class="visually-hidden"> type of data</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Purpose of data source
+          </dt>
+          <dd class="cya-answer">
+            {{ data['purpose-of-data-source'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/purpose-of-data-source">
+              Change<span class="visually-hidden"> purpose of data source</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Methodology
+          </dt>
+          <dd class="cya-answer">
+            {{ data['methodology'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/methodology">
+              Change<span class="visually-hidden"> methodology</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Rounding
+          </dt>
+          <dd class="cya-answer">
+            {{ data['rounding'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/rounding">
+              Change<span class="visually-hidden"> rounding</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Related publications
+          </dt>
+          <dd class="cya-answer">
+            {{ data['related-publications'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/related-publications">
+              Change<span class="visually-hidden"> related publications</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Quality Methodology Information link
+          </dt>
+          <dd class="cya-answer">
+            {{ data['quality-methodology-information-link'] }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/quality-methodology-information-link">
+              Change<span class="visually-hidden"> Quality Methodology Information link</span>
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="cya-question">
+            Further technical information
+          </dt>
+          <dd class="cya-answer">
+            {{ data['further-technical-information'] | replace('\n', '<br>') | safe }}
+          </dd>
+          <dd class="cya-change">
+            <a href="/further-technical-information">
+              Change<span class="visually-hidden"> further technical information</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="heading-medium">Send to review</h2>
+
+      <p class="text">
+        Some text goes here.
+      </p>
+
+      <div class="form-group">
+        <a href="confirmation-page" class="button">Send to review</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

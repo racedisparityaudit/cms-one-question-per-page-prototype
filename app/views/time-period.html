@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/url/of/previous/page">Back</a>
+
+      <form class="form" action="/area-covered" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="time-period">
+            <h1 class="heading-large">Time period</h1>
+            <span class="form-hint">
+              The time period the data covers, eg ‘2015/16’ or ‘2009/10 to 2015/16’
+            </span>
+          </label>
+          <input class="form-control" id="time-period" type="text" name="time-period" value="{{ data['time-period'] }}">
+
+          <details style="margin-top: 20px;">
+            <summary>Further guidance</summary>
+
+            <p>For financial or academic year date ranges use the format ‘2015/16’. Use the ‘What the data measures’ section to specify whether the measure spans an academic or financial year.</p>
+
+            <p>For combined years of data use the format ‘2013/14, 2014/15 and 2015/16 (combined)’.</p>
+
+            <p>For a time period starting and ending with non-calendar years, format as ‘2009/10 to 2015/16’.</p>
+
+            <p>Preserve the formatting used for external publications: for example, ‘The English Housing Survey 2013-14’.</p>
+          </details>
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

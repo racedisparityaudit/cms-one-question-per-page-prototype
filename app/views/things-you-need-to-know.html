@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/what-the-data-measures" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="things-you-need-to-know">
+            <h1 class="heading-large">Things you need to know</h1>
+            <span class="form-hint">
+              Use this section to explain factors that might lead users to misinterpret or misunderstand the data. Suggested maximum word count: 250.
+            </span>
+          </label>
+
+          <details>
+            <summary>Further guidance</summary>
+
+            <p>This section may contain explanations of:</p>
+
+            <ul class="list list-bullet">
+              <li>sample sizes, suppression, missing data</li>
+              <li>changes in methodology over time</li>
+              <li>other limitations in the quality or reliability of the data</li>
+              <li>the application of statistical methods like weighting and age standardisation</li>
+              <li>the size of the group with unknown ethnicity, and whether they’ve been included when calculating values like percentages</li>
+              <li>Even quite complex statistical concepts can and should be translated into plain English for users.</li>
+            </ul>
+
+            <p>Sometimes, it’s helpful to offer a simplified version of a statistical caveat or test, and refer specialist users to ‘Methodology’ or ‘Download the data’ for more detailed and/or technical information.</p>
+
+            <p>See the <a href="https://guide.ethnicity-facts-figures.service.gov.uk/a-z">Style guide A to Z</a> for boilerplated plain English explanations for specialist concepts.</p>
+
+          </details>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="things-you-need-to-know" name="things-you-need-to-know">{{ data['things-you-need-to-know'] }}</textarea>
+
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

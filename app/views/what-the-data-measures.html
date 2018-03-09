@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/ethnic-categories" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="what-the-data-measures">
+            <h1 class="heading-large">What the data measures</h1>
+            <span class="form-hint">
+              Use this section to add context and background to the data. <br>Suggested maximum word count: 500.
+            </span>
+          </label>
+
+          <details>
+            <summary>Further guidance</summary>
+
+            <div class="panel panel-border-narrow">
+              <p>This section may contain explanations of:</p>
+
+              <ul class="list list-bullet">
+                <li>what this data tells users (for example, ‘This data measures how likely people in different ethnic groups are to own their own homes’)</li>
+                <li>the source of the data (for example, ‘The figures are drawn from the 2014/15 and 2015/16 English Housing Survey (EHS)’)</li>
+                <li>technical aspects that need further explanation (for example, ‘Some households contain people from different ethnic backgrounds; in these circumstances, we have used the ethnic background of the household reference person to define the ethnic background of the household’)</li>
+                <li>plain English definitions of terms used in the measure (for example, ‘Young people’ means people aged 10 to 17 years’)</li>
+                <li>what’s included where ‘other’ is used to categorise certain parts of the data (for example, ‘Types of crime under ‘Other offences’ include:…’)</li>
+              </ul>
+
+              <p>Translate complex statistical concepts into plain English for users, referring to the <a href="https://guide.ethnicity-facts-figures.service.gov.uk/a-z">Style guide A to Z</a> where needed.</p>
+            </div>
+
+          </details>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="what-the-data-measures" name="what-the-data-measures">{{ data['what-the-data-measures'] }}</textarea>
+
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

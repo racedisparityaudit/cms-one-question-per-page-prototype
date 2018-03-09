@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/things-you-need-to-know" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="main-points">
+            <h1 class="heading-large">Main points</h1>
+            <span class="form-hint">
+              This section is intended for high-level findings about the data, serving as an instant takeaway for users.
+            </span>
+          </label>
+
+          <details>
+            <summary>Further guidance</summary>
+
+            <p>The main points should:</p>
+            <ul class="list list-bullet">
+              <li>supply context where appropriate (for example, ‘14.3 million (63%) of the estimated 22.6 million households in England in 2015/16 were in home ownership’)</li>
+              <li>summarise the most important findings on the page (across all the dimensions analysed)</li>
+              <li>help users unfamiliar with charts and tables understand what they’re looking at (for example, figures quoted in the commentary which users can also find in the charts and tables help make sense of both)</li>
+              <li>where possible, work as stand-alone statements (as they may be quoted out of context)</li>
+              <li>alert users to serious caveats about the quality of the data</li>
+              <li>be written in between 6 and 8 bullet points</li>
+            </ul>
+
+          </details>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="main-points" name="main-points">{{ data['main-points'] }}</textarea>
+
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
