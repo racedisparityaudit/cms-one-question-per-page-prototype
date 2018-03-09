@@ -22,17 +22,17 @@
               </legend>
 
               <div class="multiple-choice">
-                <input class="country" id="england" name="area-covered" type="checkbox" value="England" {{ 'checked' if data['area-covered'].includes('England') }}>
+                <input class="country" id="england" name="area-covered" type="checkbox" value="England" {{ 'checked' if data['area-covered'] and data['area-covered'].includes('England') }}>
                 <label for="england">England</label>
               </div>
 
               <div class="multiple-choice">
-                <input class="country" id="wales" name="area-covered" type="checkbox" value="Wales" {{ 'checked' if data['area-covered'].includes('Wales') }}>
+                <input class="country" id="wales" name="area-covered" type="checkbox" value="Wales" {{ 'checked' if data['area-covered'] and data['area-covered'].includes('Wales') }}>
                 <label for="wales">Wales</label>
               </div>
 
               <div class="multiple-choice">
-                <input class="country" id="scotland" name="area-covered" type="checkbox" value="Scotland" {{ 'checked' if data['area-covered'].includes('Scotland') }}>
+                <input class="country" id="scotland" name="area-covered" type="checkbox" value="Scotland" {{ 'checked' if data['area-covered'] and data['area-covered'].includes('Scotland') }}>
                 <label for="scotland">Scotland</label>
               </div>
 
