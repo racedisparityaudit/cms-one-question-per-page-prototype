@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Further technical information
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/summary" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="main-points">
+            <h1 class="heading-large">Further technical information</h1>
+            <span class="form-hint">
+              Please supply any other information you think is relevant.
+            </span>
+          </label>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="further-technical-information" name="further-technical-information">{{ data['further-technical-information'] }}</textarea>
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Purpose of data source
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/methodology" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="main-points">
+            <h1 class="heading-large">Purpose of data source</h1>
+            <span class="form-hint">
+              Explain why government (or another body) is collecting this data.
+            </span>
+          </label>
+
+          <details>
+            <summary>Example</summary>
+
+            <p>Example from Reading attainments for children aged 7 to 11:</p>
+            <blockquote class="panel panel-border-narrow" style="margin-bottom: 20px; padding-top: 0; padding-bottom: 0;">
+              <p>The primary purpose is to measure schools’ and pupils’ progress and performance from key stage 1 to key stage 2 to monitor and improve standards and inform parental choice when applying to local schools.</p>
+            </blockquote>
+
+          </details>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="purpose-of-data-source" name="purpose-of-data-source">{{ data['purpose-of-data-source'] }}</textarea>
+
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

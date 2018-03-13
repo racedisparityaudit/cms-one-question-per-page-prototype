@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Type of data
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/purpose-of-data-source" method="post">
+
+        <div class="form-group">
+
+          <fieldset id="uk-countries" class="uk-countries" style="margin-bottom: 1em;">
+            <legend class="form-label" for="title">
+              <h1 class="heading-large">Type of data</h1>
+            </legend>
+
+            <div class="multiple-choice">
+              <input class="" id="administrative" name="type-of-data" type="checkbox" value="Administrative" {{ 'checked' if data['type-of-data'] and data['type-of-data'].includes('Administrative') }}>
+              <label for="administrative">Administrative</label>
+            </div>
+
+            <div class="multiple-choice">
+              <input class="" id="survey" name="type-of-data" type="checkbox" value="Survey" {{ 'checked' if data['type-of-data'] and data['type-of-data'].includes('Survey') }}>
+              <label for="survey">Survey (including census)</label>
+            </div>
+
+          </fieldset>
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

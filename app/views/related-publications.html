@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Related publications
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/quality-methodology-information-link" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="main-points">
+            <h1 class="heading-large">Related publications</h1>
+            <span class="form-hint">
+              Use this section to list further reading or related data sets.
+            </span>
+          </label>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="related-publications" name="related-publications">{{ data['related-publications'] }}</textarea>
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

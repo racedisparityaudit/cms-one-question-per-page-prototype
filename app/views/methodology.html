@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Methodology
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="/rounding" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="main-points">
+            <h1 class="heading-large">Methodology</h1>
+            <span class="form-hint">
+              This section should contain a detailed methodological description for statisticians, specialists and experts in the field.
+            </span>
+          </label>
+
+          <details>
+            <summary>Further guidance</summary>
+
+            <p>The language in this section may need to be more specialist and technical than the commentary elsewhere. However it should be as accessible as possible to the interested non-specialist.</p>
+
+            <p>Include information about the following if they apply to your data:</p>
+
+            <ul class="list list-bullet">
+
+              <li>sample size, including limitations on covering the whole population
+              <li>collection methods, including sample selection and possible sample biases
+              <li>response rates, and non-response biases</li>
+              <li>whether any significance tests were done (for example, overlapping intervals or t tests) and how they were done</li>
+              <li>whether analysing the data by ethnicity has any quality or methodological implications that aren’t covered in the QMI document</li>
+              <li>age standardisation – how and why it was applied</li>
+              <li>weighting</li>
+              <li>confidence intervals</li>
+              <li>Content on weighting and confidence intervals should be given separate subheads and listed last in the methodology section.</li>
+            </ul>
+
+            <p>See the <a href="https://guide.ethnicity-facts-figures.service.gov.uk/a-z">Style guide A to Z</a> for boilerplated plain English explanations for specialist concepts.
+
+          </details>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="methodology" name="methodology">{{ data['methodology'] }}</textarea>
+
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
