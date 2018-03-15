@@ -21,19 +21,22 @@
               The time period the data covers, eg ‘2015/16’ or ‘2009/10 to 2015/16’
             </span>
           </label>
-          <input class="form-control" id="time-period" type="text" name="time-period" value="{{ data['time-period'] }}">
 
-          <details style="margin-top: 20px;">
+          <details>
             <summary>Further guidance</summary>
 
-            <p>For financial or academic year date ranges use the format ‘2015/16’. Use the ‘What the data measures’ section to specify whether the measure spans an academic or financial year.</p>
+            <div class="panel panel-border-narrow" style="margin-bottom: 20px;">
+              <p>For financial or academic year date ranges use the format ‘2015/16’. Use the ‘What the data measures’ section to specify whether the measure spans an academic or financial year.</p>
 
-            <p>For combined years of data use the format ‘2013/14, 2014/15 and 2015/16 (combined)’.</p>
+              <p>For combined years of data use the format ‘2013/14, 2014/15 and 2015/16 (combined)’.</p>
 
-            <p>For a time period starting and ending with non-calendar years, format as ‘2009/10 to 2015/16’.</p>
+              <p>For a time period starting and ending with non-calendar years, format as ‘2009/10 to 2015/16’.</p>
 
-            <p>Preserve the formatting used for external publications: for example, ‘The English Housing Survey 2013-14’.</p>
+              <p>Preserve the formatting used for external publications: for example, ‘The English Housing Survey 2013-14’.</p>
+            </div>
           </details>
+
+          <input class="form-control" id="time-period" type="text" name="time-period" value="{{ data['time-period'] }}">
 
         </div>
 
