@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dimension summary
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <a class="link-back" href="{{ '/summary' if data['dimension-' + data['dimension'] + '-summary'] else '/dimension-time-period?dimension=' + data['dimension'] }}">Back</a>
+
+      <form class="form" action="{{ '/summary' if data['dimension-' + data['dimension'] + '-summary'] else '/summary' }}" method="post">
+
+      <div style="margin-top: 30px;">
+        <span class="heading-small">{{ data['dimension-' + data['dimension'] + '-title'] }}</span>
+      </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dimension-summary">
+            <h1 class="heading-large" style="margin-top: 10px;">Summary</h1>
+            <span class="form-hint">
+              Comment in detail on the findings presented in this dimension.
+            </span>
+          </label>
+
+          <details style="margin-top: 20px;">
+            <summary>Further guidance</summary>
+
+            <p>Content should:</p>
+
+            <ul class="list list-bullet">
+
+              <li>avoid repetition of the main points by providing detail specific to this dimension</li>
+              <li>draw out the important and reliable findings and trends over time</li>
+              <li>alert users to serious caveats about the quality of the data</li>
+              <li>where possible, work as stand-alone statements (as they may be quoted out of context)</li>
+              <li>avoid simply repeating the numbers in the tables and charts</li>
+              <li>avoid overloading users with information they can’t absorb</li>
+              <li>account for differences visible in the charts which aren’t meaningful</li>
+              <li>be written in between 6 and 8 bullet points</li>
+            </ul>
+
+            <p>The example below, taken from Overweight adults, illustrates the difference between a measure’s main points and summary.</p>
+
+            <p>Main points:</p>
+
+            <div class="panel panel-border-narrow" style="padding-top: 5px;">the percentage of White adults and Black adults who were overweight in the period 2013 to 2015 was higher than the average for all adults in England</div>
+
+            <p>Dimension summary:</p>
+
+            <div class="panel panel-border-narrow" style="padding-top: 5px;">in the period 2013 to 2015, the percentage of adults who were overweight was 66% for White people and 67% for Black people, both higher than the average for all adults in England</div>
+
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control form-control-3-4" rows="10" id="dimension-summary" name="dimension-{{ data['dimension'] }}-summary">{{ data['dimension-' + data['dimension'] + '-summary'] }}</textarea>
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

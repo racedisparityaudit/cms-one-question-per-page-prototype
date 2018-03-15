@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Dimension title
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="{{ '/summary' if data['dimension-' + data['dimension'] + '-title'] else '/ethnic-categories' }}">Back</a>
+
+      <form class="form" action="{{ '/summary' if data['dimension-' + data['dimension'] + '-title'] else '/dimension-time-period?dimension=' + data['dimension'] }}" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="title">
+            <h1 class="heading-large">Dimension Title</h1>
+            <span class="form-hint">
+              A plain English version of the data dimension. Remember that ‘by ethnicity’ comes first, followed by a second or third cut of the data.
+            </span>
+          </label>
+
+          <details style="margin-top: 20px;">
+            <summary>Examples</summary>
+
+            <h2 class="heading-small">Bad example:</h2>
+
+            <div class="panel panel-border-narrow" style="padding-top: 5px;">16 to 64 year olds not in full-time education who are employed, by highest qualification and ethnicity</div>
+
+            <h2 class="heading-small">Good examples:</h2>
+
+            <div class="panel panel-border-narrow" style="padding-top: 5px;">Employment, by qualification level and ethnicity</div>
+
+            <div class="panel panel-border-narrow" style="padding-top: 5px; margin-bottom: 20px;">Employment, by qualification level, ethnicity and gender</div>
+          </details>
+
+          <input class="form-control" id="title" type="text" name="dimension-{{ data['dimension'] }}-title" style="width: 100%;" value="{{ data['dimension-' + data['dimension'] + '-title'] }}">
+
+          <input type="hidden" name="dimension" value="{{ data['dimension'] }}" />
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source frequency of publication
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ data['from'] if data['from'] == '/summary' else '/source-type-of-statistics' }}" method="post">
+
+          <fieldset style="margin-bottom: 20px;">
+            <legend>
+              <h1 class="heading-large">Source frequency of publication</h1>
+              <span class="form-hint">
+                How often is this data published?
+              </span>
+            </span>
+
+            </legend>
+
+            {% set values =
+              ['Monthly','Quarterly','3 times per year','Twice a year','Yearly','Every 2 years','Every 3 years','Every 4 years','Every 5 years','Ad-hoc','Other']
+              %}
+
+            {% for value in values %}
+
+            <div class="multiple-choice">
+              <input id="source-frequency-of-publication-{{ loop.index }}" name="source-{{ data['source'] }}-frequency-of-publication" type="radio" value="{{ value }}" {{ 'checked' if data['source-' + data['source'] + '-frequency-of-publication'] == value }}>
+              <label for="source-frequency-of-publication-{{ loop.index }}">{{ value }}</label>
+            </div>
+
+            {% endfor %}
+
+            <div class="panel" id="frequency-other" style="border-left-width: 5px;">
+              <label class="form-label">Other</label>
+              <div><input name="source-{{ data['source'] }}-frequency-of-publication-other" type="text" class="form-control" value="{{ data['source-' + data['source'] + '-frequency-of-publication-other'] }}"></input></div>
+            </div>
+
+          </fieldset>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

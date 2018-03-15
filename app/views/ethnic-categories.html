@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Question page
+  The ethnic categories used in this data
 {% endblock %}
 
 {% block content %}
@@ -10,9 +10,9 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <a class="link-back" href="/summary">Back</a>
+      <a class="link-back" href="{{ '/summary' if data['ethnic-categories'] else '/what-the-data-measures' }}">Back</a>
 
-      <form class="form" action="/summary" method="post">
+      <form class="form" action="{{ '/summary' if data['ethnic-categories'] else '/dimension-title?dimension=1' }}" method="post">
 
         <div class="form-group">
           <label class="form-label" for="ethnic-categories">

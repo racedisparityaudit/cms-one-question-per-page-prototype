@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source type of statistics
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/source-suppression-rules' }}" method="post">
+
+
+          <fieldset style="margin-bottom: 20px;">
+            <legend>
+              <h1 class="heading-large">Source type of statistics</h1>
+            </span>
+
+            </legend>
+
+            {% set values =
+              ['National Statistics','Official statistics','Experimental statistics','Non-official statistics']
+              %}
+
+            {% for value in values %}
+
+            <div class="multiple-choice">
+              <input id="source-type-of-statistics-{{ loop.index }}" name="source-{{ data['source'] }}-type-of-statistics" type="radio" value="{{ value }}" {{ 'checked' if data['source-' + data['source'] + '-type-of-statistics'] == value }}>
+              <label for="source-type-of-statistics-{{ loop.index }}">{{ value }}</label>
+            </div>
+
+            {% endfor %}
+
+          </fieldset>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

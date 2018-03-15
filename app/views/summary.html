@@ -146,6 +146,69 @@
         </div>
       </dl>
 
+
+      {% set numberOfDimension = 1 %}
+
+      {% for i in range(1,20) %}
+        {% if data['dimension-' + i + '-title'] %}
+          {% set numberOfDimension = i %}
+        {% endif %}
+      {% endfor %}
+
+      {% for i in range(1, numberOfDimension+1) -%}
+
+        <h2 class="heading-medium">
+          {{ data['dimension-' + i + '-title'] if data['dimension-' + i + '-title'] else "Untitled dimension"  }}
+        </h2>
+
+        <dl class="govuk-check-your-answers cya-questions-short">
+          <div>
+            <dt class="cya-question">
+              Title
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-title'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-title?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension title</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="cya-question">
+              Time period
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-time-period'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-time-period?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension time period</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="cya-question">
+              Summary
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-summary'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-summary?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension time period</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+      {% endfor %}
+
+      <div style="padding-top: 20px;">
+        <a href="/dimension-title?dimension={{ numberOfDimension + 1 }}">Add dimension</a>
+      </div>
+
+
       <h2 class="heading-medium">
         Primary source details
       </h2>
@@ -156,10 +219,10 @@
             Title
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-source-title'] }}
+            {{ data['source-1-title'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-source-title">
+            <a href="/source-title?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source title</span>
             </a>
           </dd>
@@ -170,10 +233,10 @@
             Publisher
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-source-publisher'] }}
+            {{ data['source-1-publisher'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-source-publisher">
+            <a href="/source-publisher?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source publisher</span>
             </a>
           </dd>
@@ -184,10 +247,10 @@
             URL
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-source-url'] }}
+            {{ data['source-1-url'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-source-url">
+            <a href="/source-url?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source URL</span>
             </a>
           </dd>
@@ -198,10 +261,10 @@
             Publication date
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-publication-date'] }}
+            {{ data['source-1-publication-date'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-publication-date">
+            <a href="/source-publication-date?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source publication date</span>
             </a>
           </dd>
@@ -212,10 +275,10 @@
             Last update date
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-last-update-date'] }}
+            {{ data['source-1-last-update-date'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-last-update-date">
+            <a href="/source-last-update-date?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source last update date</span>
             </a>
           </dd>
@@ -226,10 +289,10 @@
             Next update date
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-next-update-date'] }}
+            {{ data['source-1-next-update-date'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-next-update-date">
+            <a href="/source-next-update-date?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source next update date</span>
             </a>
           </dd>
@@ -240,10 +303,10 @@
             Frequency of publication
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-frequency-of-publication'] }}
+            {{ data['source-1-frequency-of-publication'] if data['source-1-frequency-of-publication'] != 'Other' else data['source-1-frequency-of-publication-other'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-frequency-of-publication">
+            <a href="/source-frequency-of-publication?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source frequency of publication</span>
             </a>
           </dd>
@@ -254,11 +317,11 @@
             Type of statistics
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-type-of-statistic'] }}
+            {{ data['source-1-type-of-statistics'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-type-of-statistic">
-              Change<span class="visually-hidden"> primary source type of statistic</span>
+            <a href="/source-type-of-statistics?source=1&from=/summary">
+              Change<span class="visually-hidden"> primary source type of statistics</span>
             </a>
           </dd>
         </div>
@@ -268,10 +331,10 @@
             Suppression rules
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-suppression-rules'] }}
+            {{ data['source-1-suppression-rules'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-suppression-rules">
+            <a href="/source-suppression-rules?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source suppression rules</span>
             </a>
           </dd>
@@ -282,10 +345,10 @@
             Disclosure control
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-disclosure-control'] }}
+            {{ data['source-1-disclosure-control'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-disclosure-control">
+            <a href="/source-disclosure-control?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source disclosure control</span>
             </a>
           </dd>
@@ -296,10 +359,14 @@
             Contact details
           </dt>
           <dd class="cya-answer">
-            {{ data['primary-contact-details'] }}
+            {{ data['source-1-contact-details-name'] }}
+            {{ "<br>" | safe if data['source-1-contact-details-email'] }}
+            {{ data['source-1-contact-details-email'] }}
+            {{ "<br>" | safe if data['source-1-contact-details-phone-number']  }}
+            {{ data['source-1-contact-details-phone-number'] }}
           </dd>
           <dd class="cya-change">
-            <a href="/primary-contact-details">
+            <a href="/source-contact-details?source=1&from=/summary">
               Change<span class="visually-hidden"> primary source contact details</span>
             </a>
           </dd>

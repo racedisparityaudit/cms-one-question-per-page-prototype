@@ -10,9 +10,9 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <a class="link-back" href="/summary">Back</a>
+      <a class="link-back" href="{{ '/summary' if data['title'] else '/start' }}">Back</a>
 
-      <form class="form" action="/time-period" method="post">
+      <form class="form" action="{{ '/summary' if data['title'] else '/time-period' }}" method="post">
 
         <div class="form-group">
           <label class="form-label" for="title">

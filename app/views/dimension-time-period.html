@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Question page
+  Dimension time period
 {% endblock %}
 
 {% block content %}
@@ -10,18 +10,22 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <a class="link-back" href="{{ '/summary' if data['time-period'] else '/title' }}">Back</a>
+      <a class="link-back" href="{{ '/summary' if data['dimension-' + data['dimension'] + '-time-period'] else '/dimension-title?dimension=' + data['dimension'] }}">Back</a>
 
-      <form class="form" action="{{ '/summary' if data['time-period'] else '/area-covered' }}" method="post">
+      <form class="form" action="{{ '/summary' if data['dimension-' + data['dimension'] + '-time-period'] else '/dimension-summary?dimension=' + data['dimension'] }}" method="post">
+
+      <div style="margin-top: 30px;">
+        <span class="heading-small">{{ data['dimension-' + data['dimension'] + '-title'] }}</span>
+      </div>
 
         <div class="form-group">
           <label class="form-label" for="time-period">
-            <h1 class="heading-large">Time period</h1>
+            <h1 class="heading-large" style="margin-top: 10px;">Time period</h1>
             <span class="form-hint">
               The time period the data covers, eg ‘2015/16’ or ‘2009/10 to 2015/16’
             </span>
           </label>
-          <input class="form-control" id="time-period" type="text" name="time-period" value="{{ data['time-period'] }}">
+          <input class="form-control" id="time-period" type="text" name="dimension-{{ data['dimension'] }}-time-period" value="{{ data['dimension-' + data['dimension'] + '-time-period'] }}">
 
           <details style="margin-top: 20px;">
             <summary>Further guidance</summary>

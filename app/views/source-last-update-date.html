@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source last update date
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/source-next-update-date' }}" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="source-title">
+            <h1 class="heading-large">Source last update date</h1>
+            <span class="form-hint">
+              If the source has been updated since publication, enter the date of the last revision.
+            </span>
+          </label>
+
+          <input class="form-control" id="source-title" type="text" name="source-{{ data['source'] }}-last-update-date" type="url" value="{{ data['source-' + data['source'] + '-last-update-date'] }}">
+
+          <input type="hidden" name="source" value="{{ data['source'] }}" />
+          <input type="hidden" name="from" value="/source-url?source={{ data['source'] }}" />
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

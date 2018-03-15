@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source title
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/source-publication-date' }}" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="source-title">
+            <h1 class="heading-large">Source URL</h1>
+            <span class="form-hint">
+              Provide a link to the data source. <br>Ideally this should be a web page and not a PDF or Excel file.
+            </span>
+          </label>
+
+          <input class="form-control" id="source-title" type="text" name="source-{{ data['source'] }}-url" type="url" style="width: 100%;" value="{{ data['source-' + data['source'] + '-url'] }}">
+
+          <input type="hidden" name="source" value="{{ data['source'] }}" />
+          <input type="hidden" name="from" value="/source-url?source={{ data['source'] }}" />
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

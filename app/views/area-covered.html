@@ -10,9 +10,9 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <a class="link-back" href="/summary">Back</a>
+      <a class="link-back" href="{{ '/summary' if data['area-covered'] else '/time-period' }}">Back</a>
 
-      <form class="form" action="/lowest-level-of-geography" method="post">
+      <form class="form" action="{{ '/summary' if data['area-covered'] else '/lowest-level-of-geography' }}" method="post">
 
         <div class="form-group">
 

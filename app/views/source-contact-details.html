@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source contact details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ data['from'] if data['from'] else '/type-of-data' }}" method="post">
+
+
+        <fieldset style="margin-bottom: 20px;">
+          <legend>
+            <h1 class="heading-large">Source contact details</h1>
+            <span class="form-hint" style="margin-bottom: 20px;">
+              These contact details aren’t currently published, but are used only for internal purposes.
+            </span>
+          </span>
+
+          <div class="form-group">
+            <label for="" class="form-label">Name</label>
+            <input class="form-control" id="source-name" type="text" name="source-{{ data['source'] }}-contact-details-name" value="{{ data['source-' + data['source'] + '-contact-details-name'] }}">
+          </div>
+
+          <div class="form-group">
+            <label for="source-email" class="form-label">E-mail address</label>
+            <input class="form-control" id="source-email" type="text" name="source-{{ data['source'] }}-contact-details-email" value="{{ data['source-' + data['source'] + '-contact-details-email'] }}">
+          </div>
+
+          <div class="form-group">
+            <label for="source-phone-number" class="form-label">Phone number</label>
+            <input class="form-control" id="source-phone-number" type="text" name="source-{{ data['source'] }}-contact-details-phone-number" value="{{ data['source-' + data['source'] + '-contact-details-phone-number'] }}">
+          </div>
+
+
+        </fieldset>
+
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

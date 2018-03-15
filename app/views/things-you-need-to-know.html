@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Question page
+  Things you need to know
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <a class="link-back" href="/summary">Back</a>
+      <a class="link-back" href="{{ '/summary' if data['things-you-need-to-know'] else '/main-points' }}">Back</a>
 
       <form class="form" action="/what-the-data-measures" method="post">
 

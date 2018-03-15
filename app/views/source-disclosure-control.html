@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Source disclosure control
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <a class="link-back" href="/summary">Back</a>
+
+      <form class="form" action="{{ data['from'] if data['from'] else '/source-contact-details' }}" method="post">
+
+        <div class="form-group">
+          <label class="form-label" for="source-title">
+            <h1 class="heading-large">Source disclosure control</h1>
+          </label>
+
+          <textarea class="form-control form-control-3-4" rows="10" id="source-suppression-rules" name="source-{{ data['source'] }}-disclosure-control">{{ data['source-' + data['source'] + '-disclosure-control'] }}</textarea>
+
+          <input type="hidden" name="source" value="{{ data['source'] }}" />
+
+        </div>
+
+        <div class="form-group">
+          <input class="button" type="submit" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
