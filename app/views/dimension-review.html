@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-full">
+      <a href="/" class="link-back">Back</a>
+
+      <h1 class="heading-large">
+        Review dimensions
+      </h1>
+
+      {% set numberOfDimension = 1 %}
+
+      {% for i in range(1,20) %}
+        {% if data['dimension-' + i + '-title'] %}
+          {% set numberOfDimension = i %}
+        {% endif %}
+      {% endfor %}
+
+      {% for i in range(1, numberOfDimension+1) -%}
+
+        <h2 class="heading-medium">
+          {{ data['dimension-' + i + '-title'] if data['dimension-' + i + '-title'] else "Untitled dimension"  }}
+        </h2>
+
+        <dl class="govuk-check-your-answers cya-questions-short">
+          <div>
+            <dt class="cya-question">
+              Title
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-title'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-title?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension title</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="cya-question">
+              Time period
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-time-period'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-time-period?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension time period</span>
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="cya-question">
+              Summary
+            </dt>
+            <dd class="cya-answer">
+              {{ data['dimension-' + i + '-summary'] }}
+            </dd>
+            <dd class="cya-change">
+              <a href="/dimension-summary?dimension={{ i }}">
+                Change<span class="visually-hidden"> dimension time period</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+      {% endfor %}
+
+      <div style="padding-top: 20px;">
+        <a class="button" href="/dimension-title?dimension={{ numberOfDimension + 1 }}" style="margin-right: 20px;">Add dimension</a> <span style="line-height: 40px; margin-right: 20px;">or</span> <a href="/source-title?source=1&from=/dimension-review" class="button">Continue</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

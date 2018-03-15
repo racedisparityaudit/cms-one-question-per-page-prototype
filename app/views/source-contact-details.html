@@ -12,7 +12,7 @@
 
       <a class="link-back" href="/summary">Back</a>
 
-      <form class="form" action="{{ data['from'] if data['from'] else '/type-of-data' }}" method="post">
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/type-of-data' }}" method="post">
 
 
         <fieldset style="margin-bottom: 20px;">

@@ -12,7 +12,7 @@
 
       <a class="link-back" href="{{ data['from'] if data['from'] else '/source-title?source=' + data['source'] }}">Back</a>
 
-      <form class="form" action="{{ data['from'] if data['from'] else '/source-url?source=' + data['source'] }}" method="post">
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/source-url?source=' + data['source'] }}" method="post">
 
         <div class="form-group">
           <label class="form-label" for="source-title">
@@ -24,6 +24,7 @@
 
           <input class="form-control" id="source-title" type="text" name="source-{{ data['source'] }}-publisher" style="width: 100%;" value="{{ data['source-' + data['source'] + '-publisher'] }}">
 
+          <input type="hidden" name="from" value="/source-publisher" />
           <input type="hidden" name="source" value="{{ data['source'] }}" />
 
         </div>

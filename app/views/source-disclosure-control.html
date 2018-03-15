@@ -12,7 +12,7 @@
 
       <a class="link-back" href="/summary">Back</a>
 
-      <form class="form" action="{{ data['from'] if data['from'] else '/source-contact-details' }}" method="post">
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/source-contact-details' }}" method="post">
 
         <div class="form-group">
           <label class="form-label" for="source-title">

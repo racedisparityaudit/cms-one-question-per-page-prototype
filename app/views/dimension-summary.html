@@ -13,7 +13,7 @@
 
       <a class="link-back" href="{{ '/summary' if data['dimension-' + data['dimension'] + '-summary'] else '/dimension-time-period?dimension=' + data['dimension'] }}">Back</a>
 
-      <form class="form" action="{{ '/summary' if data['dimension-' + data['dimension'] + '-summary'] else '/summary' }}" method="post">
+      <form class="form" action="{{ '/summary' if data['from'] == '/summary' else '/dimension-review' }}" method="post">
 
       <div style="margin-top: 30px;">
         <span class="heading-small">{{ data['dimension-' + data['dimension'] + '-title'] }}</span>
